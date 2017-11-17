@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="facebook-messenger-4.28.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.android/build-cache/9d0db181b4b0d406c434a816f0f00d68660c5d9e/output/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/9d0db181b4b0d406c434a816f0f00d68660c5d9e/output/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

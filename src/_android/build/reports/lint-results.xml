@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="4" by="lint 2.3.3">
+
+    <issue
+        id="SuspiciousImport"
+        severity="Warning"
+        message="Don&apos;t include `android.R` here; use a fully qualified name for each usage instead"
+        category="Correctness"
+        priority="9"
+        summary="&apos;`import android.R`&apos; statement"
+        explanation="Importing `android.R` is usually not intentional; it sometimes happens when you use an IDE and ask it to automatically add imports at a time when your project&apos;s R class it not present.&#xA;&#xA;Once the import is there you might get a lot of &quot;confusing&quot; error messages because of course the fields available on `android.R` are not the ones you&apos;d expect from just looking at your own `R` class."
+        errorLine1="import android.R;"
+        errorLine2="~~~~~~~~~~~~~~~~~">
+        <location
+            file="D:\Pine\Git\HigherHigher\src\_android\src\topebox\core\OsFunctions.java"
+            line="16"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="GradleCompatible"
+        severity="Error"
+        message="All com.android.support libraries must use the exact same version specification (mixing versions can lead to runtime crashes). Found versions 25.3.1, 25.2.0. Examples include `com.android.support:animated-vector-drawable:25.3.1` and `com.android.support:mediarouter-v7:25.2.0`"
+        category="Correctness"
+        priority="8"
+        summary="Incompatible Gradle Versions"
+        explanation="There are some combinations of libraries, or tools and libraries, that are incompatible, or can lead to bugs. One such incompatibility is compiling with a version of the Android support libraries that is not the latest version (or in particular, a version lower than your `targetSdkVersion`.)"
+        quickfix="studio">
+        <location
+            file="D:\Pine\Git\HigherHigher\src\_android\build.gradle"/>
+    </issue>
+
+    <issue
+        id="ApplySharedPref"
+        severity="Warning"
+        message="Consider using `apply()` instead; `commit` writes its data to persistent storage immediately, whereas `apply` will handle it in the background"
+        category="Correctness"
+        priority="6"
+        summary="Use `apply()` on `SharedPreferences`"
+        explanation="Consider using `apply()` instead of `commit` on shared preferences. Whereas `commit` blocks and writes its data to persistent storage immediately, `apply` will handle it in the background."
+        errorLine1="  editor.commit();"
+        errorLine2="  ~~~~~~~~~~~~~~~">
+        <location
+            file="D:\Pine\Git\HigherHigher\src\_android\src\topebox\core\GameSetting.java"
+            line="14"
+            column="3"/>
+    </issue>
+
+    <issue
+        id="ApplySharedPref"
+        severity="Warning"
+        message="Consider using `apply()` instead; `commit` writes its data to persistent storage immediately, whereas `apply` will handle it in the background"
+        category="Correctness"
+        priority="6"
+        summary="Use `apply()` on `SharedPreferences`"
+        explanation="Consider using `apply()` instead of `commit` on shared preferences. Whereas `commit` blocks and writes its data to persistent storage immediately, `apply` will handle it in the background."
+        errorLine1="  editor.commit();"
+        errorLine2="  ~~~~~~~~~~~~~~~">
+        <location
+            file="D:\Pine\Git\HigherHigher\src\_android\src\topebox\core\GameSetting.java"
+            line="20"
+            column="3"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        severity="Warning"
+        message="Attribute `resizeableActivity` is only used in API level 24 and higher (current min is 21)"
+        category="Correctness"
+        priority="6"
+        summary="Attribute unused on older versions"
+        explanation="This check finds attributes set in XML files that were introduced in a version newer than the oldest version targeted by your application (with the `minSdkVersion` attribute).&#xA;&#xA;This is not an error; the application will simply ignore the attribute. However, if the attribute is important to the appearance of functionality of your application, you should consider finding an alternative way to achieve the same result with only available attributes, and then you can optionally create a copy of the layout in a layout-vNN folder which will be used on API NN or higher where you can take advantage of the newer attribute.&#xA;&#xA;Note: This check does not only apply to attributes. For example, some tags can be unused too, such as the new `&lt;tag>` element in layouts introduced in API 21."
+        errorLine1="      android:resizeableActivity=&quot;true&quot;"
+        errorLine2="      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="studio">
+        <location
+            file="D:\Pine\Git\HigherHigher\src\_android\AndroidManifest.xml"
+            line="19"
+            column="7"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        severity="Warning"
+        message="Attribute `supportsPictureInPicture` is only used in API level 24 and higher (current min is 21)"
+        category="Correctness"
+        priority="6"
+        summary="Attribute unused on older versions"
+        explanation="This check finds attributes set in XML files that were introduced in a version newer than the oldest version targeted by your application (with the `minSdkVersion` attribute).&#xA;&#xA;This is not an error; the application will simply ignore the attribute. However, if the attribute is important to the appearance of functionality of your application, you should consider finding an alternative way to achieve the same result with only available attributes, and then you can optionally create a copy of the layout in a layout-vNN folder which will be used on API NN or higher where you can take advantage of the newer attribute.&#xA;&#xA;Note: This check does not only apply to attributes. For example, some tags can be unused too, such as the new `&lt;tag>` element in layouts introduced in API 21."
+        errorLine1="      android:supportsPictureInPicture=&quot;false&quot;"
+        errorLine2="      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="studio">
+        <location
+            file="D:\Pine\Git\HigherHigher\src\_android\AndroidManifest.xml"
+            line="20"
+            column="7"/>
+    </issue>
+
+    <issue
+        id="ManifestOrder"
+        severity="Warning"
+        message="`&lt;uses-feature>` tag appears after `&lt;application>` tag"
+        category="Correctness"
+        priority="5"
+        summary="Incorrect order of elements in manifest"
+        explanation="The &lt;application> tag should appear after the elements which declare which version you need, which features you need, which libraries you need, and so on. In the past there have been subtle bugs (such as themes not getting applied correctly) when the `&lt;application>` tag appears before some of these other elements, so it&apos;s best to order your manifest in the logical dependency order."
+        errorLine1=" &lt;uses-feature android:glEsVersion=&quot;0x00010001&quot;/>"
+        errorLine2=" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="D:\Pine\Git\HigherHigher\src\_android\AndroidManifest.xml"
+            line="76"
+            column="2"/>
+    </issue>
+
+    <issue
+        id="InnerclassSeparator"
+        severity="Warning"
+        message="Use &apos;$&apos; instead of &apos;.&apos; for inner classes (or use only lowercase letters in package names); replace &quot;topebox.game.Notification.NotificationActivity&quot; with &quot;topebox$game$Notification$NotificationActivity&quot;"
+        category="Correctness"
+        priority="3"
+        summary="Inner classes should use `$` rather than `.`"
+        explanation="When you reference an inner class in a manifest file, you must use &apos;$&apos; instead of &apos;.&apos; as the separator character, i.e. Outer$Inner instead of Outer.Inner.&#xA;&#xA;(If you get this warning for a class which is not actually an inner class, it&apos;s because you are using uppercase characters in your package name, which is not conventional.)"
+        errorLine1="    &lt;activity android:name=&quot;topebox.game.Notification.NotificationActivity&quot;/>"
+        errorLine2="              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="studio">
+        <location
+            file="D:\Pine\Git\HigherHigher\src\_android\AndroidManifest.xml"
+            line="64"
+            column="15"/>
+    </issue>
+
+    <issue
+        id="InnerclassSeparator"
+        severity="Warning"
+        message="Use &apos;$&apos; instead of &apos;.&apos; for inner classes (or use only lowercase letters in package names); replace &quot;topebox.game.Notification.HigherHigherAlarmReceiver&quot; with &quot;topebox$game$Notification$HigherHigherAlarmReceiver&quot;"
+        category="Correctness"
+        priority="3"
+        summary="Inner classes should use `$` rather than `.`"
+        explanation="When you reference an inner class in a manifest file, you must use &apos;$&apos; instead of &apos;.&apos; as the separator character, i.e. Outer$Inner instead of Outer.Inner.&#xA;&#xA;(If you get this warning for a class which is not actually an inner class, it&apos;s because you are using uppercase characters in your package name, which is not conventional.)"
+        errorLine1="    &lt;receiver android:name=&quot;topebox.game.Notification.HigherHigherAlarmReceiver&quot;"
+        errorLine2="              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="studio">
+        <location
+            file="D:\Pine\Git\HigherHigher\src\_android\AndroidManifest.xml"
+            line="65"
+            column="15"/>
+    </issue>
+
+    <issue
+        id="Typos"
+        severity="Warning"
+        message="Repeated word &quot;Higher&quot; in message: possible typo"
+        category="Correctness:Messages"
+        priority="7"
+        summary="Spelling error"
+        explanation="This check looks through the string definitions, and if it finds any words that look like likely misspellings, they are flagged."
+        errorLine1="    &lt;string name=&quot;app_name&quot;>Higher Higher!&lt;/string>"
+        errorLine2="                            ^"
+        quickfix="studio">
+        <location
+            file="D:\Pine\Git\HigherHigher\src\_android\res\values\strings.xml"
+            line="3"
+            column="29"/>
+    </issue>
+
+    <issue
+        id="PackageManagerGetSignatures"
+        severity="Information"
+        message="Reading app signatures from getPackageInfo: The app signatures could be exploited if not validated properly; see issue explanation for details."
+        category="Security"
+        priority="8"
+        summary="Potential Multiple Certificate Exploit"
+        explanation="Improper validation of app signatures could lead to issues where a malicious app submits itself to the Play Store with both its real certificate and a fake certificate and gains access to functionality or information it shouldn&apos;t have due to another application only checking for the fake certificate and ignoring the rest. Please make sure to validate all signatures returned by this method."
+        url="https://bluebox.com/technical/android-fake-id-vulnerability/"
+        urls="https://bluebox.com/technical/android-fake-id-vulnerability/"
+        errorLine1="     PackageManager.GET_SIGNATURES);"
+        errorLine2="     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="D:\Pine\Git\HigherHigher\src\_android\src\topebox\game\higherhigher\MainActivity.java"
+            line="312"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="AllowBackup"
+        severity="Warning"
+        message="On SDK version 23 and up, your app data will be automatically backed up and restored on app install. Consider adding the attribute `android:fullBackupContent` to specify an `@xml` resource which configures which files to backup. More info: https://developer.android.com/training/backup/autosyncapi.html"
+        category="Security"
+        priority="3"
+        summary="AllowBackup/FullBackupContent Problems"
+        explanation="The `allowBackup` attribute determines if an application&apos;s data can be backed up and restored. It is documented at http://developer.android.com/reference/android/R.attr.html#allowBackup&#xA;&#xA;By default, this flag is set to `true`. When this flag is set to `true`, application data can be backed up and restored by the user using `adb backup` and `adb restore`.&#xA;&#xA;This may have security consequences for an application. `adb backup` allows users who have enabled USB debugging to copy application data off of the device. Once backed up, all application data can be read by the user. `adb restore` allows creation of application data from a source specified by the user. Following a restore, applications should not assume that the data, file permissions, and directory permissions were created by the application itself.&#xA;&#xA;Setting `allowBackup=&quot;false&quot;` opts an application out of both backup and restore.&#xA;&#xA;To fix this warning, decide whether your application should support backup, and explicitly set `android:allowBackup=(true|false)&quot;`.&#xA;&#xA;If not set to false, and if targeting API 23 or later, lint will also warn that you should set `android:fullBackupContent` to configure auto backup."
+        url="https://developer.android.com/training/backup/autosyncapi.html"
+        urls="https://developer.android.com/training/backup/autosyncapi.html,http://developer.android.com/reference/android/R.attr.html#allowBackup"
+        errorLine1=" &lt;application android:icon=&quot;@mipmap/icon&quot; android:label=&quot;@string/app_name&quot;"
+        errorLine2=" ^"
+        quickfix="studio">
+        <location
+            file="D:\Pine\Git\HigherHigher\src\_android\AndroidManifest.xml"
+            line="7"
+            column="2"/>
+    </issue>
+
+    <issue
+        id="ObsoleteSdkInt"
+        severity="Warning"
+        message="Unnecessary; SDK_INT is never &lt; 21"
+        category="Performance"
+        priority="6"
+        summary="Obsolete SDK_INT Version Check"
+        explanation="This check flags version checks that are not necessary, because the `minSdkVersion` (or surrounding known API level) is already at least as high as the version checked for."
+        errorLine1="  if(Build.VERSION.SDK_INT &lt; Build.VERSION_CODES.LOLLIPOP){"
+        errorLine2="     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="D:\Pine\Git\HigherHigher\src\_android\src\topebox\core\Actions\ActionDialogShow.java"
+            line="31"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="ObsoleteSdkInt"
+        severity="Warning"
+        message="Unnecessary; SDK_INT is never &lt; 21"
+        category="Performance"
+        priority="6"
+        summary="Obsolete SDK_INT Version Check"
+        explanation="This check flags version checks that are not necessary, because the `minSdkVersion` (or surrounding known API level) is already at least as high as the version checked for."
+        errorLine1="  if(Build.VERSION.SDK_INT &lt; Build.VERSION_CODES.KITKAT)"
+        errorLine2="     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="D:\Pine\Git\HigherHigher\src\_android\src\topebox\game\higherhigher\MainActivity.java"
+            line="42"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="ObsoleteSdkInt"
+        severity="Warning"
+        message="Unnecessary; SDK_INT is never &lt; 21"
+        category="Performance"
+        priority="6"
+        summary="Obsolete SDK_INT Version Check"
+        explanation="This check flags version checks that are not necessary, because the `minSdkVersion` (or surrounding known API level) is already at least as high as the version checked for."
+        errorLine1="  if(Build.VERSION.SDK_INT &lt; Build.VERSION_CODES.JELLY_BEAN_MR1) {"
+        errorLine2="     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="D:\Pine\Git\HigherHigher\src\_android\src\topebox\game\higherhigher\MainActivity.java"
+            line="293"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="ObsoleteSdkInt"
+        severity="Warning"
+        message="Unnecessary; SDK_INT is never &lt; 21"
+        category="Performance"
+        priority="6"
+        summary="Obsolete SDK_INT Version Check"
+        explanation="This check flags version checks that are not necessary, because the `minSdkVersion` (or surrounding known API level) is already at least as high as the version checked for."
+        errorLine1="            if(Build.VERSION.SDK_INT &lt; Build.VERSION_CODES.KITKAT) {"
+        errorLine2="               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="D:\Pine\Git\HigherHigher\src\_android\src\topebox\game\Notification\TopeboxNotificationManager.java"
+            line="44"
+            column="16"/>
+    </issue>
+
+    <issue
+        id="ObsoleteSdkInt"
+        severity="Warning"
+        message="Unnecessary; SDK_INT is never &lt; 21"
+        category="Performance"
+        priority="6"
+        summary="Obsolete SDK_INT Version Check"
+        explanation="This check flags version checks that are not necessary, because the `minSdkVersion` (or surrounding known API level) is already at least as high as the version checked for."
+        errorLine1="            if(Build.VERSION.SDK_INT &lt; Build.VERSION_CODES.KITKAT) {"
+        errorLine2="               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="D:\Pine\Git\HigherHigher\src\_android\src\topebox\game\Notification\TopeboxNotificationManager.java"
+            line="75"
+            column="16"/>
+    </issue>
+
+    <issue
+        id="StaticFieldLeak"
+        severity="Warning"
+        message="Do not place Android context classes in static fields; this is a memory leak (and also breaks Instant Run)"
+        category="Performance"
+        priority="6"
+        summary="Static Field Leaks"
+        explanation="A static field will leak contexts."
+        errorLine1=" static private Activity CurrentActivity;"
+        errorLine2=" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="D:\Pine\Git\HigherHigher\src\_android\src\topebox\core\AdmobManager.java"
+            line="43"
+            column="2"/>
+    </issue>
+
+    <issue
+        id="StaticFieldLeak"
+        severity="Warning"
+        message="Do not place Android context classes in static fields; this is a memory leak (and also breaks Instant Run)"
+        category="Performance"
+        priority="6"
+        summary="Static Field Leaks"
+        explanation="A static field will leak contexts."
+        errorLine1=" //class callback for google play"
+        errorLine2=" ^">
+        <location
+            file="D:\Pine\Git\HigherHigher\src\_android\src\topebox\core\AppContext.java"
+            line="42"
+            column="2"/>
+    </issue>
+
+    <issue
+        id="StaticFieldLeak"
+        severity="Warning"
+        message="Do not place Android context classes in static fields (static reference to `FirebaseServices` which has field `CurrentActivity` pointing to `Activity`); this is a memory leak (and also breaks Instant Run)"
+        category="Performance"
+        priority="6"
+        summary="Static Field Leaks"
+        explanation="A static field will leak contexts."
+        errorLine1=" public static FirebaseServices currentFirebaseInstance;"
+        errorLine2=" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="D:\Pine\Git\HigherHigher\src\_android\src\topebox\core\Firebase\FirebaseManager.java"
+            line="11"
+            column="2"/>
+    </issue>
+
+    <issue
+        id="StaticFieldLeak"
+        severity="Warning"
+        message="Do not place Android context classes in static fields; this is a memory leak (and also breaks Instant Run)"
+        category="Performance"
+        priority="6"
+        summary="Static Field Leaks"
+        explanation="A static field will leak contexts."
+        errorLine1=" public static Activity currentActivity;"
+        errorLine2=" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="D:\Pine\Git\HigherHigher\src\_android\src\topebox\core\Firebase\FirebaseManager.java"
+            line="12"
+            column="2"/>
+    </issue>
+
+    <issue
+        id="StaticFieldLeak"
+        severity="Warning"
+        message="Do not place Android context classes in static fields (static reference to `GameSparkServices` which has field `CurrentActivity` pointing to `Activity`); this is a memory leak (and also breaks Instant Run)"
+        category="Performance"
+        priority="6"
+        summary="Static Field Leaks"
+        explanation="A static field will leak contexts."
+        errorLine1=" static private GameSparkServices mGameSparkServicesInstance;"
+        errorLine2=" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="D:\Pine\Git\HigherHigher\src\_android\src\topebox\core\GameSparkServices\GameSparkManager.java"
+            line="26"
+            column="2"/>
+    </issue>
+
+    <issue
+        id="StaticFieldLeak"
+        severity="Warning"
+        message="Do not place Android context classes in static fields (static reference to `GooglePlayService` which has field `CurrentActivity` pointing to `Activity`); this is a memory leak (and also breaks Instant Run)"
+        category="Performance"
+        priority="6"
+        summary="Static Field Leaks"
+        explanation="A static field will leak contexts."
+        errorLine1=" static private GooglePlayService CurrentClient;"
+        errorLine2=" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="D:\Pine\Git\HigherHigher\src\_android\src\topebox\core\GooglePlay\GooglePlayManager.java"
+            line="36"
+            column="2"/>
+    </issue>
+
+    <issue
+        id="StaticFieldLeak"
+        severity="Warning"
+        message="Do not place Android context classes in static fields; this is a memory leak (and also breaks Instant Run)"
+        category="Performance"
+        priority="6"
+        summary="Static Field Leaks"
+        explanation="A static field will leak contexts."
+        errorLine1="    public static Activity mCurrentActivity;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="D:\Pine\Git\HigherHigher\src\_android\src\topebox\game\Notification\TopeboxNotificationManager.java"
+            line="21"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="StaticFieldLeak"
+        severity="Warning"
+        message="Do not place Android context classes in static fields; this is a memory leak (and also breaks Instant Run)"
+        category="Performance"
+        priority="6"
+        summary="Static Field Leaks"
+        explanation="A static field will leak contexts."
+        errorLine1=" static private Activity CurrentActivity;"
+        errorLine2=" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="D:\Pine\Git\HigherHigher\src\_android\src\topebox\core\UnityAdsManager.java"
+            line="15"
+            column="2"/>
+    </issue>
+
+    <issue
+        id="StaticFieldLeak"
+        severity="Warning"
+        message="Do not place Android context classes in static fields; this is a memory leak (and also breaks Instant Run)"
+        category="Performance"
+        priority="6"
+        summary="Static Field Leaks"
+        explanation="A static field will leak contexts."
+        errorLine1=" static private Activity CurrentActivity;"
+        errorLine2=" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="D:\Pine\Git\HigherHigher\src\_android\src\topebox\core\VungleAdsManager.java"
+            line="48"
+            column="2"/>
+    </issue>
+
+    <issue
+        id="UseOfBundledGooglePlayServices"
+        severity="Warning"
+        message="Avoid using bundled version of Google Play services SDK."
+        category="Performance"
+        priority="4"
+        summary="Use of bundled version of Google Play services"
+        explanation="Google Play services SDK&apos;s can be selectively included, which enables a smaller APK size. Consider declaring dependencies on individual Google Play services SDK&apos;s. If you are using Firebase API&apos;s (http://firebase.google.com/docs/android/setup), Android Studio&apos;s Tools \u2192 Firebase assistant window can automatically add just the dependencies needed for each feature."
+        url="http://developers.google.com/android/guides/setup#split"
+        urls="http://developers.google.com/android/guides/setup#split"
+        errorLine1="  compile &apos;com.google.android.gms:play-services:11.4.0&apos;"
+        errorLine2="  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="D:\Pine\Git\HigherHigher\src\_android\build.gradle"
+            line="185"
+            column="3"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.drawable.icon` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds."
+        quickfix="studio">
+        <location
+            file="D:\Pine\Git\HigherHigher\src\_android\res\drawable\icon.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.layout.main` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds."
+        errorLine1="&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="^"
+        quickfix="studio">
+        <location
+            file="D:\Pine\Git\HigherHigher\src\_android\res\layout\main.xml"
+            line="2"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.string.app_id` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds."
+        errorLine1="    &lt;string name=&quot;app_id&quot;>109624411098&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~"
+        quickfix="studio">
+        <location
+            file="D:\Pine\Git\HigherHigher\src\_android\res\values\strings.xml"
+            line="4"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.string.fb_login_protocol_scheme` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds."
+        errorLine1=" &lt;string name=&quot;fb_login_protocol_scheme&quot;>&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="studio">
+        <location
+            file="D:\Pine\Git\HigherHigher\src\_android\res\values\strings.xml"
+            line="8"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.bool.use_firebase_remote_config` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds."
+        errorLine1=" &lt;bool name=&quot;use_firebase_remote_config&quot;>false&lt;/bool>"
+        errorLine2="       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="studio">
+        <location
+            file="D:\Pine\Git\HigherHigher\src\_android\res\values\strings.xml"
+            line="44"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.string.google_crash_reporting_api_key` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds."
+        errorLine1="    &lt;string name=&quot;google_crash_reporting_api_key&quot; translatable=&quot;false&quot;>AIzaSyDFdm-U2osYEnYI1sXUZJnJArsa7tbowwU&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="studio">
+        <location
+            file="D:\Pine\Git\HigherHigher\src\_android\build\generated\res\google-services\debug\values\values.xml"
+            line="8"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.string.project_id` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds."
+        errorLine1="    &lt;string name=&quot;project_id&quot; translatable=&quot;false&quot;>higher-higher-79993169&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~"
+        quickfix="studio">
+        <location
+            file="D:\Pine\Git\HigherHigher\src\_android\build\generated\res\google-services\debug\values\values.xml"
+            line="10"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        severity="Warning"
+        message="Found bitmap drawable `res/drawable/icon.png` in densityless folder"
+        category="Usability:Icons"
+        priority="5"
+        summary="Image defined in density-independent drawable folder"
+        explanation="The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to `drawable-mdpi` and consider providing higher and lower resolution versions in `drawable-ldpi`, `drawable-hdpi` and `drawable-xhdpi`. If the icon *really* is density independent (for example a solid color) you can place it in `drawable-nodpi`."
+        url="http://developer.android.com/guide/practices/screens_support.html"
+        urls="http://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="D:\Pine\Git\HigherHigher\src\_android\res\drawable\icon.png"/>
+    </issue>
+
+    <issue
+        id="GoogleAppIndexingWarning"
+        severity="Warning"
+        message="App is not indexable by Google Search; consider adding at least one Activity with an ACTION-VIEW intent filter. See issue explanation for more details."
+        category="Usability"
+        priority="5"
+        summary="Missing support for Firebase App Indexing"
+        explanation="Adds URLs to get your app into the Google index, to get installs and traffic to your app from Google Search."
+        url="https://g.co/AppIndexing/AndroidStudio"
+        urls="https://g.co/AppIndexing/AndroidStudio"
+        errorLine1=" &lt;application android:icon=&quot;@mipmap/icon&quot; android:label=&quot;@string/app_name&quot;"
+        errorLine2=" ^"
+        quickfix="studio">
+        <location
+            file="D:\Pine\Git\HigherHigher\src\_android\AndroidManifest.xml"
+            line="7"
+            column="2"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        severity="Warning"
+        message="[I18N] Hardcoded string &quot;Hello World, MainActivity&quot;, should use `@string` resource"
+        category="Internationalization"
+        priority="5"
+        summary="Hardcoded text"
+        explanation="Hardcoding text attributes directly in layout files is bad for several reasons:&#xA;&#xA;* When creating configuration variations (for example for landscape or portrait)you have to repeat the actual text (and keep it up to date when making changes)&#xA;&#xA;* The application cannot be translated to other languages by just adding new translations for existing string resources.&#xA;&#xA;There are quickfixes to automatically extract this hardcoded string into a resource lookup."
+        errorLine1="    android:text=&quot;Hello World, MainActivity&quot;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="D:\Pine\Git\HigherHigher\src\_android\res\layout\main.xml"
+            line="10"
+            column="5"/>
+    </issue>
+
+</issues>

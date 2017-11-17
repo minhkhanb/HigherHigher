@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.gamesparks.sdk\gamesparks-java-sdk\0.2.3-SNAPSHOT\2508f084f52d030fbf536506a202a9a680c73bc7\gamesparks-java-sdk-0.2.3-SNAPSHOT.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="2508f084f52d030fbf536506a202a9a680c73bc7">
+        <dex dex="D:\Pine\Git\HigherHigher\src\_android\build\intermediates\transforms\dex\debug\folders\1000\10\gamesparks-java-sdk-0.2.3-SNAPSHOT_684d4670c33dee396e9d75f2c6772b825c5249cf\classes.dex" />
+    </item>
+
+</items>
